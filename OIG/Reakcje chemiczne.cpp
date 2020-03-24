@@ -85,6 +85,5 @@ int main() {
     }
     cout << W;
 
-    system("PAUSE");
     return 0;
 }
