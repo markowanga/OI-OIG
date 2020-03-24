@@ -20,11 +20,13 @@ struct reak {
 };
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
     int n, k, r;
     queue<int> K;
     int pom, g, ind, W = 0;
-    //cin >> n >> k >> r;
-    scanf("%d%d%d", &n, &k, &r);
+    cin >> n >> k >> r;
 
     // tablica zawierająca czy pierwiastek jest dostępny
     bool *pier = new bool[n + 1];
@@ -40,8 +42,7 @@ int main() {
     // pierwiastki dostepne od poczatku - dodanie do kolejki
     // i zaznaczenie w tablicy pier
     for (int a = 0; a < k; a++) {
-        //cin >> pom;
-        scanf("%d", &pom);
+        cin >> pom;
         pier[pom] = true;
         K.push(pom);
     }
@@ -49,19 +50,15 @@ int main() {
     // wczytanie równań reakcji
     for (int a = 0; a < r; a++) {
         reak R;
-        //cin >> g;
-        scanf("%d", &g);
+        cin >> g;
         R.skladnik = g;
         for (int b = 0; b < g; b++) {
-            //cin >> pom;
-            scanf("%d", &pom);
+            cin >> pom;
             powiazania[pom].push_back(a);
         }
-        //cin >> g;
-        scanf("%d", &g);
+        cin >> g;
         for (int b = 0; b < g; b++) {
-            //cin >> pom;
-            scanf("%d", &pom);
+            cin >> pom;
             R.produkt.push_back(pom);
         }
         //wys_reak(R);
@@ -86,8 +83,7 @@ int main() {
         //cout << "------------" << endl;
         K.pop();
     }
-    //cout << W << endl;
-    printf("%d", W);
+    cout << W;
 
     system("PAUSE");
     return 0;
